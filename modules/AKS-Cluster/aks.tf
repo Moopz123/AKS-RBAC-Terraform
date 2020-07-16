@@ -62,6 +62,14 @@ data "azurerm_subscription" "current" {}
       client_id     = var.service_principal_client_id
       client_secret = var.service_principal_client_secret
     }
+   
+    network_profile {
+      network_plugin = var.network_plugin
+      docker_bridge_cidr = var.docker_network_cidr
+      network_policy = var.network_policy
+      dns_service_ip = var.dns_service_ip
+      service_cidr = var.service_cidr
+    }
 
     role_based_access_control {
       azure_active_directory {
